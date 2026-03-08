@@ -1,0 +1,292 @@
+/* BASE - applies to the whole page */
+
+body {
+  background-color: #000000;
+  font-family: "Comic Sans MS", cursive;
+  color: #ffffff;
+  margin: 0;
+  padding: 5px;
+}
+
+
+/* LINKS*/
+
+a {
+  color: #ff8800;
+  font-weight: bold;
+}
+
+a:visited {
+  /* color of a link you've already clicked */
+  color: #ff0000;
+}
+
+a:hover {
+  /* color when you hover your mouse over a link */
+  color: #00ff00;
+  background: #ff00ff;
+}
+
+
+/* RAINBOW DIVIDER */
+
+.rainbow-hr {
+  height: 20px;
+  border: none;
+  background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+  margin: 4px 0;
+}
+
+
+/* ================================
+   UNDER CONSTRUCTION BANNER
+   ================================ */
+
+.under-construction {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Impact, sans-serif;
+  text-align: center;
+  padding: 8px;
+  border: 5px dashed #00ff00;
+  letter-spacing: 3px;
+
+  /* this calls the animation we define below */
+  animation: construction-blink 0.5s infinite;
+}
+
+@keyframes construction-blink {
+  /* at the start: yellow background, black text */
+  0%,
+  100% {
+    background-color: #ffff00;
+    color: #000000;
+  }
+  /* halfway through: red background, yellow text */
+  50% {
+    background-color: #ff0000;
+    color: #ffff00;
+  }
+}
+
+
+/* ================================
+   SECTION HEADERS
+   ================================ */
+
+.section-header {
+  font-family: Impact, sans-serif;
+  font-size: 20px;
+  background: linear-gradient(to right, #ff00ff, #000000, #ff00ff);
+  color: #ffff00;
+  padding: 4px 10px;
+  border-left: 8px solid #00ffff;
+  border-right: 8px solid #00ffff;
+  letter-spacing: 2px;
+  /* text-shadow: horizontal vertical blur color */
+  text-shadow: 2px 2px 0 #ff0000;
+}
+
+
+/* VISITOR COUNTER */
+
+.counter-box {
+  background: #000080;
+  border: 4px ridge #00ffff;
+  padding: 6px 12px;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
+}
+
+.counter-number {
+  font-size: 22px;
+  color: #ffff00;
+}
+
+
+/* BADGE (Internet Explorer notice) */
+
+.badge {
+  background: #000080;
+  color: #ffffff;
+  font-size: 10px;
+  font-family: Arial, sans-serif;
+  border: 2px outset #aaaaaa;
+  padding: 3px 6px;
+  text-align: center;
+  display: inline-block;
+}
+
+
+/* PROFILE PIC BOX */
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 4px solid #ff00ff;
+  display: block;
+}
+
+
+/* INTEREST ITEMS (the little bullet points in interests section)*/
+
+.interest-item {
+  color: #aaffaa;
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+/* this adds a fire emoji before every interest item automatically */
+.interest-item::before {
+  content: "🔥 ";
+}
+
+
+/* GUESTBOOK ENTRIES*/
+
+.guestbook-entry {
+  background: #110022;
+  border: 2px dashed #ff00ff;
+  padding: 8px;
+  margin: 4px 0;
+  font-size: 13px;
+  color: #00ffff;
+}
+
+
+/* MUSIC PLAYER BOX */
+
+.music-player {
+  background: #1a0033;
+  border: 3px solid #ff00ff;
+  padding: 8px;
+  color: #ff00ff;
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+}
+
+
+/* ANIMATIONS
+   Each one has 2 parts:
+   1. @keyframes — defines what the animation does
+   2. .classname — applies it to an element */
+
+
+/* --- BLINK --- */
+@keyframes blink {
+  0%, 100% { visibility: visible; }
+  50%       { visibility: hidden; }
+}
+
+.blink {
+  animation: blink 0.7s step-start infinite;
+}
+
+
+/* --- RAINBOW TEXT --- */
+@keyframes rainbow {
+  0%   { color: #ff0000; }
+  15%  { color: #ff8800; }
+  30%  { color: #ffff00; }
+  45%  { color: #00ff00; }
+  60%  { color: #00ffff; }
+  75%  { color: #0088ff; }
+  90%  { color: #ff00ff; }
+  100% { color: #ff0000; }
+}
+
+.rainbow {
+  animation: rainbow 2s linear infinite;
+}
+
+
+/* --- FIRE GLOW (used on the header title) --- */
+@keyframes fire {
+  0%,
+  100% {
+    color: #ffff00;
+    text-shadow: 0 0 5px #ff0000, 0 0 15px #ff8800;
+  }
+  50% {
+    color: #ff8800;
+    text-shadow: 0 0 20px #ff0000, 0 0 40px #ff8800;
+  }
+}
+
+.fire {
+  animation: fire 1s infinite;
+}
+
+
+/* --- SPIN --- */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.spin {
+  /* inline-block is needed so transform works on this element */
+  display: inline-block;
+  font-size: 40px;
+  animation: spin 2s linear infinite;
+}
+
+
+/* --- BOUNCE --- */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.bounce {
+  display: inline-block;
+  animation: bounce 0.8s infinite;
+}
+
+
+/* --- SHAKE (used on "things i hate") --- */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-5px); }
+  75%       { transform: translateX(5px); }
+}
+
+.shake {
+  display: inline-block;
+  animation: shake 0.4s infinite;
+}
+
+
+/* --- heart --- */
+@keyframes dance {
+  0%, 100% { transform: rotate(-15deg); }
+  50%       { transform: rotate(15deg); }
+}
+
+.heart {
+  display: inline-block;
+  font-size: 28px;
+  animation: dance 0.5s infinite;
+}
+
+
+/* --- STARBURST (spins AND scales up) --- */
+@keyframes starburst {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    color: #ffff00;
+  }
+  50% {
+    transform: scale(1.3) rotate(180deg);
+    color: #ff00ff;
+  }
+}
+
+.starburst {
+  display: inline-block;
+  animation: starburst 1s infinite;
+}
