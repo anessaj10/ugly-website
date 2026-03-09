@@ -85,6 +85,7 @@ a:hover {
   letter-spacing: 2px;
   /* text-shadow: horizontal vertical blur color */
   text-shadow: 2px 2px 0 #ff0000;
+  animation: construction-blink 0.5s infinite;
 }
 
 
